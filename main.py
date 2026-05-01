@@ -1,3 +1,4 @@
+from unittest import result
 from urllib import request
 from urllib.request import Request
 
@@ -37,3 +38,23 @@ class FormData(BaseModel):
 def test_form_data(form_data: FormData):
     return {"message": f"Hello World {form_data.first_name} {form_data.last_name}"}
 
+
+
+
+@app.post("/calculator")
+def calculator(request: Request, num1: int = Form(), num2: int = Form(), option: str = Form()):
+    result = None
+    if option == "+":
+        result =  num1 + num2
+    elif option == "-":
+        result = num1 - num2
+    elif option == "*":
+        result = num1 * num2
+    elif option == "/":
+        result = num1 / num2
+    return templates.TemplateResponse(request = request, name="item.html", context={"result": result})
+
+
+@app.get("/calculator")
+def calculator(request: Request):
+    return templates.TemplateResponse(request=request, name="item.html", context={"result": None})

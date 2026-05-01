@@ -2,11 +2,23 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>ResultCalculator</title>
 </head>
 <body>
-{{user_id}}
-{{query_args1}}
-{{query_args2}}
+    <form method = "post">
+
+        <input type = "number" name = "num1">
+        <select id="option" name = "option">
+            <option value="+"></option>
+            <option value="-"></option>
+            <option value="/"></option>
+            <option value="*"></option>
+        </select>
+        <input type = "number" name = "num2">
+        <input type = "submit" title = "Результат">
+    </form>
+    {%if result %}
+    <p>{{result}}</p>
+    {% endif %}
 </body>
 </html>
