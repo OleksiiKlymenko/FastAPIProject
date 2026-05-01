@@ -52,9 +52,12 @@ def calculator(request: Request, num1: int = Form(), num2: int = Form(), option:
         result = num1 * num2
     elif option == "/":
         result = num1 / num2
-    return templates.TemplateResponse(request = request, name="item.html", context={"result": result})
+    return templates.TemplateResponse(request = request, name="item.html", context={"result": result,
+                                      "num1": num1, "num2": num2})
 
 
 @app.get("/calculator")
-def calculator(request: Request):
-    return templates.TemplateResponse(request=request, name="item.html", context={"result": None})
+def calculator_get(request: Request):
+    return templates.TemplateResponse(request=request, name="item.html",
+                                      context={"result": None}
+                                      )

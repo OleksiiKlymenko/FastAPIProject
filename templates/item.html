@@ -7,14 +7,14 @@
 <body>
     <form method = "post">
 
-        <input type = "number" name = "num1">
+        <input type = "number" name = "num1" value = {{ num1 }}>
         <select id="option" name = "option">
-            <option value="+"></option>
-            <option value="-"></option>
-            <option value="/"></option>
-            <option value="*"></option>
+            <option value="+">+</option>
+            <option value="-">_</option>
+            <option value="/">/</option>
+            <option value="*">*</option>
         </select>
-        <input type = "number" name = "num2">
+        <input type = "number" name = "num2" value = {{ num2 }}>
         <input type = "submit" title = "Результат">
     </form>
     {%if result %}
