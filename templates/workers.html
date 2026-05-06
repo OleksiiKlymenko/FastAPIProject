@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<form>
+{% for worker in workers %}
+            <tr>
+                <td>{{ worker.id }}</td>
+                <td>{{ worker.first_name }}</td>
+                <td>{{ worker.last_name }}</td>
+                <td>{{ worker.passport }}</td>
+                <td>{{ worker.ipn }}</td>
+            </tr>
+            {% endfor %}
+</form>
+<form action="/workers" method="post">
+    <input type="text" name="first_name" placeholder="Ім'я" required><br>
+        <input type="text" name="last_name" placeholder="Прізвище" required><br>
+        <input type="text" name="passport" placeholder="Паспорт"><br>
+        <input type="number" name="ipn" placeholder="ІПН" required><br>
+        <input type = "submit" value="Add Worker">
+</form>
+</body>
+</html>
